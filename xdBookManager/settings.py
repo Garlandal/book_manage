@@ -27,7 +27,7 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 TEMPLATE_DIRS = (
-		'/home/garland/code/djcode/book_manage/templates',
+		os.path.join(BASE_DIR,'templates'),
 		)
 # Application definition
 
@@ -51,9 +51,9 @@ MIDDLEWARE_CLASSES = (
 	'django.middleware.locale.LocaleMiddleware',
 )
 
-ROOT_URLCONF = 'book_manage.urls'
+ROOT_URLCONF = 'xdBookManager.urls'
 
-WSGI_APPLICATION = 'book_manage.wsgi.application'
+WSGI_APPLICATION = 'xdBookManager.wsgi.application'
 
 
 # Database
@@ -84,3 +84,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+		os.path.join(BASE_DIR,'static'),
+		)
