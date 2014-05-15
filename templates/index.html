@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        var storage = window.localStorage;
+        $(document).ready(function() {
+        if (!storage.getItem("passTheTest")) storage.setItem("passTheTest",0);
+        if (storage.passTheTest == 0)
+            $("#main").hide();
+        else{
+            $("#main").show();
+            $("#test").hide();
+        };
+        })
+        var test = function(){
+            if($("#testForGuest").val() === "西电开源社区"){
+            $("#main").fadeIn("slow");
+            $("#test").fadeOut("fast");
+            storage.passTheTest = 1;
+            }else{
+                $("#testForGuest").val("少侠你写错了！改过重来！");
+                $("#test").addClass("has-error");
+            };
+        }
+    </script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">XDLBM</a>
+        </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="pure-menu-selected"><a href="#">Home</a></li>
+                <li><a href="#">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="test" class="form-group container row">
+        <div class=" col-md-6 col-md-offset-2">
+            <input type="text" class="form-control input-lg" id="testForGuest" placeholder="输入这个组织的名字">
+        </div>
+        <input type="submit" placeholder="提交" class="col-md-2 btn-lg alert-success" onclick="test()">
+    </div>
+    <div class="container" id="main">
+        <div class="content">
+            <h2 class="hero">Choose the book you really need</h2>
+        </div>
+                <div class="col-md-8 col-md-offset-2">
+                    <table class="table table-hover table-bordered ">
+                    <tr>
+                    <td id="number">编号</td>
+                    <td id="name">书名</td>
+                    <td id="isbn">ISBN</td>
+                    <td id="price">价格</td>
+                    <td id="state">状态</td>
+                    <td id="owner">图书来源</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <!--{% for book in book_list %}-->
+                    <!--<tr class="-->
+                    <!--{% if book.book_number ==0 %}-->
+                    <!--danger-->
+                    <!--{% else %}-->
+                    <!--success-->
+                    <!--{% endif %}-->
+                    <!--">-->
+                        <!--<td>{{ book.book_sequenceNumber }}</td>-->
+                        <!--<td>{{ book.book_name }}</td>-->
+                        <!--<td>{{ book.book_ISBN }}</td>-->
+                        <!--<td>{{ book.book_number }}</td>-->
+                        <!--<td>{{ book.book_owner }}</td>-->
+                        <!--<td>{{ borrow.keeper }}</td>-->
+                        <!--<td>{{ borrow.endtime }}</td>-->
+                    <!--</tr>-->
+
+                    <!--{% endfor %}-->
+                    <tr class="success">
+                    <td>1</td>
+                    <td>UNIX网络编程</td>
+                    <td/>
+                    <td>暂无</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>2</td>
+                    <td>C语言专家编程</td>
+                    <td/>
+                    <td>暂无</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>3</td>
+                    <td>TCP/IP详解</td>
+                    <td/>
+                    <td>暂无</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>4</td>
+                    <td>密码编码学与网络安全</td>
+                    <td/>
+                    <td>暂无</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>5</td>
+                    <td>Linux设备驱动程序</td>
+                    <td/>
+                    <td>暂无</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="warning">
+                    <td>6</td>
+                    <td>ProGit中文版（复印版）</td>
+                    <td/>
+                    <td>无</td>
+                    <td>借出</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>7</td>
+                    <td>面向服务的计算(SOC)</td>
+                    <td/>
+                    <td>49</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>8</td>
+                    <td>面向服务的计算(SOC)</td>
+                    <td/>
+                    <td>49</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>9</td>
+                    <td>面向服务的计算(SOC)</td>
+                    <td/>
+                    <td>49</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>10</td>
+                    <td>面向服务的计算(SOC)</td>
+                    <td/>
+                    <td>49</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>11</td>
+                    <td>现代操作系统</td>
+                    <td/>
+                    <td>48</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>12</td>
+                    <td>Solaris应用程序设计</td>
+                    <td/>
+                    <td>49</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>13</td>
+                    <td>轻松Scrum之旅</td>
+                    <td/>
+                    <td>39</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>14</td>
+                    <td>开源软件之道</td>
+                    <td/>
+                    <td>38</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>15</td>
+                    <td>开源软件之道</td>
+                    <td/>
+                    <td>38</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>16</td>
+                    <td>开源软件之道</td>
+                    <td/>
+                    <td>38</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>17</td>
+                    <td>Solaris内核结构</td>
+                    <td/>
+                    <td>75</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>18</td>
+                    <td>洞察中国</td>
+                    <td/>
+                    <td>78</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>19</td>
+                    <td>编程卓越之道（第二卷）</td>
+                    <td/>
+                    <td>69</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>20</td>
+                    <td>数据结构（C语言版）</td>
+                    <td/>
+                    <td>48</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>21</td>
+                    <td>嵌入式实时操作系统</td>
+                    <td/>
+                    <td>79</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>22</td>
+                    <td>操作系统概念</td>
+                    <td/>
+                    <td>65</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>23</td>
+                    <td>Java2核心技术卷2</td>
+                    <td/>
+                    <td>108</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>24</td>
+                    <td>Intel64&amp;IA-32ArchitecturesSoftwareDeveloper’sManual</td>
+                    <td/>
+                    <td>无</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>25</td>
+                    <td>黑客与画家</td>
+                    <td/>
+                    <td>49</td>
+                    <td>可借阅</td>
+                    <td>熊佳智</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="warning">
+                    <td>26</td>
+                    <td>整理习惯:一分钟改变人生</td>
+                    <td/>
+                    <td>19.8</td>
+                    <td>借出</td>
+                    <td>熊佳智</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>27</td>
+                    <td>Python学习手册(第3版)</td>
+                    <td/>
+                    <td>89</td>
+                    <td>可借阅</td>
+                    <td>熊佳智</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>28</td>
+                    <td>面向服务的计算(SOC)</td>
+                    <td/>
+                    <td>49</td>
+                    <td>可借阅</td>
+                    <td>社区</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>29</td>
+                    <td>操作系统——精髓与设计原理（第五版）（复印版）</td>
+                    <td/>
+                    <td>无</td>
+                    <td>可借阅</td>
+                    <td>刘雨齐</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>30</td>
+                    <td>ComputerNetworks(FourthEdition)</td>
+                    <td/>
+                    <td>69</td>
+                    <td>可借阅</td>
+                    <td>刘雨齐</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>31</td>
+                    <td>Blender权威指南</td>
+                    <td/>
+                    <td>89</td>
+                    <td>可借阅</td>
+                    <td>张晨</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>32</td>
+                    <td>Linux编程从入门到精通</td>
+                    <td/>
+                    <td>49.8</td>
+                    <td>可借阅</td>
+                    <td>刘雨齐</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>33</td>
+                    <td>深入浅出WPF</td>
+                    <td/>
+                    <td>45</td>
+                    <td>可借阅</td>
+                    <td>兰颢</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>33</td>
+                    <td>C陷阱与缺陷</td>
+                    <td/>
+                    <td></td>
+                    <td>可借阅</td>
+                    <td>熊佳智</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>33</td>
+                    <td>Shell脚本学习指南</td>
+                    <td/>
+                    <td></td>
+                    <td>可借阅</td>
+                    <td>熊佳智</td>
+                    <td/>
+                    <td/>
+                    </tr>
+                    <tr class="success">
+                    <td>33</td>
+                    <td>Linux/Unix设计思想</td>
+                    <td/>
+                    <td></td>
+                    <td>可借阅</td>
+                    <td>熊佳智</td>
+                    <td/>
+                    <td/>
+                    </table>
+        </div>
+    </div>
+
+    <footer>
+        <div class="">
+            <h5 class="">This is XDLinux Book Manager.Contact us:<a href="mailto:help@xdlinux.info">XDLINUX MAILBOX</a></h5>
+            
+        </div>
+    </footer>
+
+</body>
+</html>
