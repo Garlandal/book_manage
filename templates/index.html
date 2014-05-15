@@ -1,11 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title></title>
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/css/main.css" rel="stylesheet">
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+{% extends "base.html" %}
+{% block title %}XDLinux Book Manager{% endblock %}
+{% block script %}
     <script>
         var storage = window.localStorage;
         $(document).ready(function() {
@@ -28,27 +23,9 @@
             };
         }
     </script>
-</head>
+{% endblock %}
+{% block content %}
 
-<body>
-
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">XDLBM</a>
-        </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="pure-menu-selected"><a href="#">Home</a></li>
-                <li><a href="#">Sign Up</a></li>
-            </ul>
-        </div>
-    </nav>
 
     <div id="test" class="form-group container row">
         <div class=" col-md-6 col-md-offset-2">
@@ -61,7 +38,8 @@
             <h2 class="hero">Choose the book you really need</h2>
         </div>
                 <div class="col-md-8 col-md-offset-2">
-                    <table class="table table-hover table-bordered ">
+
+                    <table class="table table-hover table-bordered " style="display: none">
                     <tr>
                     <td id="number">编号</td>
                     <td id="name">书名</td>
@@ -453,12 +431,4 @@
         </div>
     </div>
 
-    <footer>
-        <div class="">
-            <h5 class="">This is XDLinux Book Manager.Contact us:<a href="mailto:help@xdlinux.info">XDLINUX MAILBOX</a></h5>
-            
-        </div>
-    </footer>
-
-</body>
-</html>
+{% endblock %}
