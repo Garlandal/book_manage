@@ -1,5 +1,5 @@
 """
-Django settings for xdBookManager project.
+Django settings for book_manage project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'he9eoaj=^5qu(4%(!82k2nm308y&x52dt298g_e@d)i7a+@x3q'
+SECRET_KEY = 'it7jve5$=5*0no2vt+gibw+9mxi+7@%ur$p+%k_fr(2r=3t0gm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -26,7 +26,9 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+TEMPLATE_DIRS = (
+		'/home/garland/code/djcode/book_manage/templates',
+		)
 # Application definition
 
 INSTALLED_APPS = (
@@ -36,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'books',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -45,11 +48,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'django.middleware.locale.LocaleMiddleware',
 )
 
-ROOT_URLCONF = 'xdBookManager.urls'
+ROOT_URLCONF = 'book_manage.urls'
 
-WSGI_APPLICATION = 'xdBookManager.wsgi.application'
+WSGI_APPLICATION = 'book_manage.wsgi.application'
 
 
 # Database
