@@ -42,3 +42,8 @@ def contact(request):
 				)
 	return render_to_response('contact_form.html',{'form':form})
 
+def publish(request):
+	books = Book.objects.all()
+	return render_to_response('index.html',
+			{'books':books})
+

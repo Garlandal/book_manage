@@ -39,17 +39,37 @@
         </div>
                 <div class="col-md-8 col-md-offset-2">
 
-                    <table class="table table-hover table-bordered " style="display: none">
+                    <table class="table table-hover table-bordered " style="">
                     <tr>
-                    <td id="number">编号</td>
+                    <td id="number">Type</td>
                     <td id="name">书名</td>
-                    <td id="isbn">ISBN</td>
-                    <td id="price">价格</td>
-                    <td id="state">状态</td>
-                    <td id="owner">图书来源</td>
+                    <td id="isbn">价格</td>
+                    <td id="price">Publish</td>
+                    <td id="state">图书来源</td>
+                    <td id="owner">Keeper</td>
+                    <td id="owner">Endtime</td>
+                   
+                    </tr>
+                    
+
+                    {% for book in books %}
+                  
+                    <tr class="success">
+                    <td>{{ book.Types }}</td>
+                    <td>{{ book.Title }}</td>
+                    
+                    <td>{{ book.Price }}</td>
+                    <td>{{ book.Publish }}</td>
+                    <td>{{ book.Source }}</td>
                     <td/>
                     <td/>
                     </tr>
+                    {% endfor %}
+                  
+
+
+
+
                     <!--{% for book in book_list %}-->
                     <!--<tr class="-->
                     <!--{% if book.book_number == 0 %}-->
@@ -68,6 +88,9 @@
                     <!--</tr>-->
 
                     <!--{% endfor %}-->
+<!-- 
+
+
                     <tr class="success">
                     <td>1</td>
                     <td>UNIX网络编程</td>
@@ -78,6 +101,9 @@
                     <td/>
                     <td/>
                     </tr>
+
+
+
                     <tr class="success">
                     <td>2</td>
                     <td>C语言专家编程</td>
@@ -430,5 +456,5 @@
                     </table>
         </div>
     </div>
-
+-->
 {% endblock %}
