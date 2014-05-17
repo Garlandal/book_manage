@@ -8,11 +8,13 @@ class Publisher(models.Model):
 		return self.Name
 
 class Book(models.Model):
+	Number	=	models.CharField(max_length=50)
 	Types	=	models.CharField(max_length=100)
 	Title	=	models.CharField(max_length=100)
+	Isbn	=	models.CharField(max_length=100)
 	Price	=	models.CharField(max_length=50)
 	Publish	=	models.ForeignKey(Publisher)	
-	Source	=	models.CharField(max_length=50)
+	Owner	=	models.CharField(max_length=50)
 	Keeper	=	models.TextField(blank=True)
 	Endtime	= 	models.DateField(blank=True,null=True)
 

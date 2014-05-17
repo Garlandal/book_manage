@@ -47,3 +47,5 @@ def publish(request):
 	return render_to_response('index.html',
 			{'books':books})
 
+def borrow(request):
+	return render_to_response('borrow.html')

@@ -3,12 +3,11 @@ from books.models import Publisher, Book
 
 # Register your models here.
 class BookInfo(admin.ModelAdmin):
-	list_display = ('Types','Title', 'Price','Publish','Source','Keeper','Endtime')
-	search_fields = ('Types','Title')
-	ordering = ('Types',)
+	list_display = ('Number','Types','Title','Isbn','Price','Publish','Owner','Keeper','Endtime')
+	search_fields = ('Types','Title','Isbn')
+	ordering = ('Number',)
 
 
 
 admin.site.register(Publisher)
-
 admin.site.register(Book,BookInfo)
