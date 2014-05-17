@@ -1,4 +1,6 @@
 test/*
 .idea/*
 books/*.pyc
+books/*.swp
 xdBookManager/*.pyc
+xdBookManager/*.swp
