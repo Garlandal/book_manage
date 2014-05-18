@@ -25,8 +25,26 @@ footer{
     bottom: 0px;
 }
 
-#borrow-submit{
-    margin-top: 10px;
-    width: 120px;
+#form-div{
+    margin-top: 5%;
+}
 
+#borrow{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+#borrow-submit{
+    width: 4.5em;
+}
+
+#information-div{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background: ghostwhite;
+    border-radius: 15px;
+}
+
+#information-div img{
+    padding-top: 15%;
 }

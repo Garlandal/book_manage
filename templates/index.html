@@ -47,22 +47,24 @@
                     <td id="price">Publish</td>
                     <td id="state">图书来源</td>
                     <td id="owner">Keeper</td>
-                    <td id="owner">Endtime</td>
+                    <td id="endtime">Endtime</td>
                    
                     </tr>
                     
 
                     {% for book in books %}
                   
-                    <tr class="success">
+                    <tr class="
+                    {% if book.Endtime == none %}success
+                    {% else %}danger
+                    {% endif %}">
                     <td>{{ book.Types }}</td>
-                    <td>{{ book.Title }}</td>
-                    
+                    <td><a href="./borrow/{{ book.Number }}/">{{ book.Title }}</a></td>
                     <td>{{ book.Price }}</td>
                     <td>{{ book.Publish }}</td>
-                    <td>{{ book.Source }}</td>
-                    <td/>
-                    <td/>
+                    <td>{{ book.Owner }}</td>
+                    <td>{{ book.Keeper }}</td>
+                    <td>{{ book.Endtime }}</td>
                     </tr>
                     {% endfor %}
                   
@@ -88,4 +90,7 @@
                     <!--</tr>-->
 
                     <!--{% endfor %}-->
+                </table>
+        </div>
+    </div>
 {% endblock %}
