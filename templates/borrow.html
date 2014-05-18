@@ -6,7 +6,7 @@
 <script>
     DOUBAN.apikey = '00fa6c0654689a0202ef4412fd39ce06'
     DOUBAN.getISBNBook({
-    isbn:'9787543632608',
+    isbn:'{{ booksinfo.Isbn }}', 
     callback:function(book1){
         var subj = DOUBAN.parseSubject(book1)
         var tl = subj.title ? subj.title : "";
