@@ -1,10 +1,41 @@
 {% extends "base.html" %}
 {% block title %}借取{{ book.name }}{% endblock %}
+{% block script %}
+<script type="text/javascript" src="http://www.douban.com/js/api.js?v=2"></script>
+<script type="text/javascript" src="http://www.douban.com/js/api-parser.js?v=1"></script>
+<script>
+    DOUBAN.apikey = '00fa6c0654689a0202ef4412fd39ce06'
+    DOUBAN.getISBNBook({
+    isbn:'9787543632608',
+    callback:function(book1){
+               var subj = DOUBAN.parseSubject(book1)
+               var tl = subj.title ? subj.title : "";
+               var author = subj.author ? subj.author : "";
+               var tmp = "<img src="+subj.link.image+" style='margin:10px;float:left'>";
+               tmp += "<div>Title : <a href="+subj.link.alternate+" target='_blank'>"+tl+"</a></div>";
+               if (subj.attribute.author) tmp += "<div>Authors : "+(subj.attribute.author.join(' / '))+"</div>";
+               if (subj.attribute.isbn13) tmp += "<div>ISBN : "+(subj.attribute.isbn13.join(' / '))+"</div>";
+               if (subj.attribute.price) tmp += "<div>Price : "+(subj.attribute.price.join(' <br/>   '))+"</div>";
+               if (subj.attribute.pages) tmp += "<div>Pages : "+(subj.attribute.pages.join(' / '))+"</div>";
+               if (subj.attribute.publisher) tmp += "<div>Publisher : "+(subj.attribute.publisher.join(' <br/>   '))+"</div>";
+               if (subj.attribute.pubdate) tmp += "<div>Pubdate : "+(subj.attribute.pubdate.join(' / '))+"</div>";
+               if (subj.rating.average)
+                    tmp +="<div>Rating: "+subj.rating.average+" / "+subj.rating.numRaters+decodeURI("%E4%BA%BA")+ "</div>"
+               tmp += "<p>"+(subj.summary ? subj.summary : "")+"</p>";
+               $('#information-div').html(tmp);
+    }
+})
+</script>
+{% endblock %}
 {% block content %}
-    <div id="form-div" class="container col-md-offset-2 col-md-8 form-group">
+
+<div class="container row">
+    <div id="information-div" class="col-md-6">
+    </div>
+    <div id="form-div" class="col-md-6 form-group">
         <form id="borrow-form">
             <input id="name" type="text" class="form-control" placeholder="請輸入您的姓名或ID">
-            <select class="form-control">
+            <select id="borrowtime" class="form-control">
                 <option>请选择您要借的时间</option>
                 <option value="7">一周</option>
                 <option value="14">两周</option>
@@ -14,4 +45,5 @@
             <input id="submit" type="submit" class="form-control" placeholder="提交">
         </form>
     </div>
+</div>
 {% endblock %}
