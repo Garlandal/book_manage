@@ -8,21 +8,17 @@
     DOUBAN.getISBNBook({
     isbn:'9787543632608',
     callback:function(book1){
-               var subj = DOUBAN.parseSubject(book1)
-               var tl = subj.title ? subj.title : "";
-               var author = subj.author ? subj.author : "";
-               var tmp = "<img src="+subj.link.image+" style='margin:10px;float:left'>";
-               tmp += "<div>Title : <a href="+subj.link.alternate+" target='_blank'>"+tl+"</a></div>";
-               if (subj.attribute.author) tmp += "<div>Authors : "+(subj.attribute.author.join(' / '))+"</div>";
-               if (subj.attribute.isbn13) tmp += "<div>ISBN : "+(subj.attribute.isbn13.join(' / '))+"</div>";
-               if (subj.attribute.price) tmp += "<div>Price : "+(subj.attribute.price.join(' <br/>   '))+"</div>";
-               if (subj.attribute.pages) tmp += "<div>Pages : "+(subj.attribute.pages.join(' / '))+"</div>";
-               if (subj.attribute.publisher) tmp += "<div>Publisher : "+(subj.attribute.publisher.join(' <br/>   '))+"</div>";
-               if (subj.attribute.pubdate) tmp += "<div>Pubdate : "+(subj.attribute.pubdate.join(' / '))+"</div>";
-               if (subj.rating.average)
-                    tmp +="<div>Rating: "+subj.rating.average+" / "+subj.rating.numRaters+decodeURI("%E4%BA%BA")+ "</div>"
-               tmp += "<p>"+(subj.summary ? subj.summary : "")+"</p>";
-               $('#information-div').html(tmp);
+        var subj = DOUBAN.parseSubject(book1)
+        var tl = subj.title ? subj.title : "";
+        var author = subj.author ? subj.author : "";
+        $('#cover-image').attr("src",subj.link.image);
+        $('#title').attr("href",subj.link.alternate);
+        $('#title').html(tl);
+        $('#author').html(subj.attribute.author);
+        $('#ISBN').html(subj.attribute.isbn13);
+        var publi=subj.attribute.publisher+"/"+subj.attribute.pubdate;
+        $('#publisher').html(publi);
+        $('#rating-average').html(subj.rating.average);
     }
 })
 </script>
@@ -31,7 +27,18 @@
 
 <div class="container row">
     <div id="information-div" class="col-md-6">
+        <div id="cover-div" class="col-md-3">
+            <img width="106px" height="160px" id="cover-image"/>
+        </div>
+        <div id="information-subdiv" class="col-md-3" style="text-align: left;">
+            <h3><a id="title" target='_blank'></a></h3>
+            <p id="author"></p>
+            <p id="ISBN"></p>
+            <p id="publisher"></p>
+            <p id="rating-average"></p>
+        </div>
     </div>
+
     <div id="form-div" class="col-md-6 form-group">
         <form id="borrow-form" class="form-horizontal">
             <div class="container row">
@@ -50,7 +57,7 @@
             </div>
             <div class="container row">
                 <div class="col-md-3">
-                    <input id="submit" type="submit" class="form-control" placeholder="提交">
+                    <input id="borrow-submit" type="submit" class="form-control" placeholder="提交">
                 </div>
             </div>
         </form>

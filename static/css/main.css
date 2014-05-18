@@ -24,3 +24,9 @@ footer{
     position: fixed;
     bottom: 0px;
 }
+
+#borrow-submit{
+    margin-top: 10px;
+    width: 120px;
+
+}
