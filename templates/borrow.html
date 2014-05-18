@@ -33,16 +33,26 @@
     <div id="information-div" class="col-md-6">
     </div>
     <div id="form-div" class="col-md-6 form-group">
-        <form id="borrow-form">
-            <input id="name" type="text" class="form-control" placeholder="請輸入您的姓名或ID">
-            <select id="borrowtime" class="form-control">
-                <option>请选择您要借的时间</option>
-                <option value="7">一周</option>
-                <option value="14">两周</option>
-                <option value="21">三周</option>
-                <option value="28">1个月</option>
-            </select>
-            <input id="submit" type="submit" class="form-control" placeholder="提交">
+        <form id="borrow-form" class="form-horizontal">
+            <div class="container row">
+                <div class="col-md-4">
+                    <input id="name" type="text" class="form-control" placeholder="請輸入您的姓名或ID">
+                </div>
+                <div class="col-md-2">
+                    <select id="borrowtime" class="form-control">
+                        <option>请选择您要借的时间</option>
+                        <option value="7">一周</option>
+                        <option value="14">两周</option>
+                        <option value="21">三周</option>
+                        <option value="28">1个月</option>
+                    </select>
+                </div>
+            </div>
+            <div class="container row">
+                <div class="col-md-3">
+                    <input id="submit" type="submit" class="form-control" placeholder="提交">
+                </div>
+            </div>
         </form>
     </div>
 </div>
