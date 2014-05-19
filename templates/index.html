@@ -56,36 +56,13 @@
                   
                     <tr class="success">
                     <td>{{ book.Types }}</td>
-                    <td>{{ book.Title }}</td>
-                    
+                    <td><a href="http://127.0.0.1:8000/borrow/{{ book.Number }}">{{ book.Title }}</a></td>
                     <td>{{ book.Price }}</td>
                     <td>{{ book.Publish }}</td>
-                    <td>{{ book.Source }}</td>
+                    <td>{{ book.Owner }}</td>
                     <td/>
                     <td/>
                     </tr>
                     {% endfor %}
                   
-
-
-
-
-                    <!--{% for book in book_list %}-->
-                    <!--<tr class="-->
-                    <!--{% if book.book_number == 0 %}-->
-                    <!--danger-->
-                    <!--{% else %}-->
-                    <!--success-->
-                    <!--{% endif %}-->
-                    <!--">-->
-                        <!--<td>{{ book.book_sequenceNumber }}</td>-->
-                        <!--<td>{{ book.book_name }}</td>-->
-                        <!--<td>{{ book.book_ISBN }}</td>-->
-                        <!--<td>{{ book.book_number }}</td>-->
-                        <!--<td>{{ book.book_owner }}</td>-->
-                        <!--<td>{{ borrow.keeper }}</td>-->
-                        <!--<td>{{ borrow.endtime }}</td>-->
-                    <!--</tr>-->
-
-                    <!--{% endfor %}-->
 {% endblock %}
