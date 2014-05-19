@@ -25,27 +25,37 @@
 {% endblock %}
 {% block content %}
 
-<div class="container row">
+<div class="container row" id="borrow">
     <div id="information-div" class="col-md-6">
-        <div id="cover-div" class="col-md-3">
+        <div id="cover-div" class="col-md-2">
             <img width="106px" height="160px" id="cover-image"/>
         </div>
-        <div id="information-subdiv" class="col-md-3" style="text-align: left;">
-            <h3><a id="title" target='_blank'></a></h3>
-            <p id="author"></p>
-            <p id="ISBN"></p>
-            <p id="publisher"></p>
-            <p id="rating-average"></p>
+        <div id="information-subdiv" class="col-md-10">
+            <div class="col-md-4" style="text-align: right;padding-right: 0">
+                <h3>&nbsp;</h3>
+                <p>作者：</p>
+                <p>ISBN：</p>
+                <p>出版信息：</p>
+                <p>豆瓣评分：</p>
+            </div>
+            <div class="col-md-8" style="text-align: left;padding-left: 0">
+                <h3><a id="title" target='_blank'></a></h3>
+                <p id="author"></p>
+                <p id="ISBN"></p>
+                <p id="publisher"></p>
+                <p id="rating-average"></p>
+            </div>
         </div>
     </div>
 
     <div id="form-div" class="col-md-6 form-group">
         <form id="borrow-form" class="form-horizontal">
-            <div class="container row">
-                <div class="col-md-4">
-                    <input id="name" type="text" class="form-control" placeholder="請輸入您的姓名或ID">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <input id="name" type="text" class="form-control" placeholder="請輸入您的姓名或ID" style="margin-bottom: 1%">
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-7">
                     <select id="borrowtime" class="form-control">
                         <option>请选择您要借的时间</option>
                         <option value="7">一周</option>
@@ -54,10 +64,8 @@
                         <option value="28">1个月</option>
                     </select>
                 </div>
-            </div>
-            <div class="container row">
-                <div class="col-md-3">
-                    <input id="borrow-submit" type="submit" class="form-control" placeholder="提交">
+                <div class="col-md-offset-3 col-md-1 ">
+                    <input id="borrow-submit" class="btn btn-info" type="submit" class="form-control" placeholder="提交">
                 </div>
             </div>
         </form>
