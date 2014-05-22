@@ -4,6 +4,13 @@
 <script type="text/javascript" src="http://www.douban.com/js/api.js?v=2"></script>
 <script type="text/javascript" src="http://www.douban.com/js/api-parser.js?v=1"></script>
 <script>
+    $(document).ready(function(){
+        $('#summary-div').hide();
+        $('#summary-show').click(function(){
+            $('#summary-show').fadeOut("fast");
+            $('#summary-div').fadeIn("slow");
+        });
+    });
     DOUBAN.apikey = '00fa6c0654689a0202ef4412fd39ce06'
     DOUBAN.getISBNBook({
     isbn:'{{ booksinfo.Isbn }}', 
@@ -16,6 +23,7 @@
         $('#title').html(tl);
         $('#author').html(subj.attribute.author);
         $('#ISBN').html(subj.attribute.isbn13);
+        $('#summary-div').html(subj.summary);
         var publi=subj.attribute.publisher+"/"+subj.attribute.pubdate;
         $('#publisher').html(publi);
         $('#rating-average').html(subj.rating.average);
@@ -37,6 +45,7 @@
                 <p>ISBN：</p>
                 <p>出版信息：</p>
                 <p>豆瓣评分：</p>
+                <button id="summary-show">本书简介</button>
             </div>
             <div class="col-md-8" style="text-align: left;padding-left: 0">
                 <h3><a id="title" target='_blank'></a></h3>
@@ -44,6 +53,8 @@
                 <p id="ISBN"></p>
                 <p id="publisher"></p>
                 <p id="rating-average"></p>
+            </div>
+            <div id="summary-div" class="col-md-offset-1 col-md-11">
             </div>
         </div>
     </div>
@@ -70,5 +81,6 @@
             </div>
         </form>
     </div>
+
 </div>
 {% endblock %}
