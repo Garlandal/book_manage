@@ -75,8 +75,8 @@
                 <div class="col-md-12">
                     <div style="display:none">{{ book }}</div>
                     {{ form.usrid.errors }}
-                    <!-- <input id="id_usrid" value="id" type="text" class="form-control" placeholder="請輸入您的姓名或ID" style="margin-bottom: 1%"> -->
-                    <label for="id_usrid">Usrid:</label>
+                    <!-- <input id="id_usrid" value="" type="text" class="form-control" placeholder="請輸入您的姓名或ID" style="margin-bottom: 1%"> -->
+                    <label for="id_usrid" >請輸入您的姓名或ID</label>
                     <!-- <input id="id_usrid" name="usrid" value="" type="text" class="form-control" placeholder="請輸入您的姓名或ID" style="margin-bottom: 1%"> -->
                     {{ form.usrid }}
                 </div>
@@ -88,15 +88,17 @@
                         <option value="{{ time }}">两周</option>
                         <option value="{{ time }}">三周</option>
                         <option value="{{ time }}">1个月</option>
-                    </select>  -->   
+                    </select>  -->  
+                    <br> 
                 {{ form.time.errors }}
-                <select id="id_time" name="time" class="form-control">
+       <!--         <select id="id_time" name="time" class="form-control">
                         <option>请选择您要借的时间</option>
                         <option value="7" selected="selected">一周</option>
                         <option value="14">两周</option>
                         <option value="21">三周</option>
                         <option value="30">1个月</option>
-                </select>
+                </select>   -->
+                <label for="id_time" >请选择您要借的时间</label>
                 {{ form.time }}
 
 
