@@ -59,22 +59,49 @@
         </div>
     </div>
 
+
+
     <div id="form-div" class="col-md-6 form-group">
-        <form id="borrow-form" class="form-horizontal">
+        <form id="borrow-form" class="form-horizontal" action="" method="POST">
 
             <div class="row">
+
+                {% if form.errors %}
+                <p style="color:red">
+                    {{ form.errors|pluralize }}
+                </p>
+                {% endif %}
+
                 <div class="col-md-12">
-                    <input id="name" type="text" class="form-control" placeholder="請輸入您的姓名或ID" style="margin-bottom: 1%">
+                    <div style="display:none">{{ book }}</div>
+                    {{ form.usrid.errors }}
+                    <!-- <input id="id_usrid" value="id" type="text" class="form-control" placeholder="請輸入您的姓名或ID" style="margin-bottom: 1%"> -->
+                    <label for="id_usrid">Usrid:</label>
+                    <!-- <input id="id_usrid" name="usrid" value="" type="text" class="form-control" placeholder="請輸入您的姓名或ID" style="margin-bottom: 1%"> -->
+                    {{ form.usrid }}
                 </div>
+
                 <div class="col-md-7">
-                    <select id="borrowtime" class="form-control">
+      <!--              <select id="borrowtime" class="form-control">
                         <option>请选择您要借的时间</option>
-                        <option value="7">一周</option>
+                        <option value="{{ time }}">一周</option>
+                        <option value="{{ time }}">两周</option>
+                        <option value="{{ time }}">三周</option>
+                        <option value="{{ time }}">1个月</option>
+                    </select>  -->   
+                {{ form.time.errors }}
+                <select id="id_time" name="time" class="form-control">
+                        <option>请选择您要借的时间</option>
+                        <option value="7" selected="selected">一周</option>
                         <option value="14">两周</option>
                         <option value="21">三周</option>
-                        <option value="28">1个月</option>
-                    </select>
-                </div>
+                        <option value="30">1个月</option>
+                </select>
+                {{ form.time }}
+
+
+                </div>  
+
                 <div class="col-md-offset-3 col-md-1 ">
                     <input id="borrow-submit" class="btn btn-info" type="submit" class="form-control" placeholder="提交">
                 </div>

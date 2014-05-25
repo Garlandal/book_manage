@@ -3,7 +3,7 @@ from books.models import Publisher, Book
 
 # Register your models here.
 class BookInfo(admin.ModelAdmin):
-	list_display = ('Number','Types','Title','Isbn','Price','Publish','Owner','Keeper','Endtime')
+	list_display = ('Number','Types','Title','Isbn','Price','Publish','Owner','Ordered','Keeper','Endtime')
 	search_fields = ('Types','Title','Isbn')
 	ordering = ('Number',)
 
