@@ -63,9 +63,20 @@
                     <td>{{ book.Price }}</td>
                     <td>{{ book.Publish }}</td>
                     <td>{{ book.Owner }}</td>
+                    {% if  book.Ordered and book.Keeper %}
+                    <td>Ordered</td>
+                    <td></td>
+                    {% elif book.Ordered = False and book.Keeper %}
                     <td>{{ book.Keeper }}</td>
                     <td>{{ book.Endtime }}</td>
+                    {% elif book.Ordered = False and not book.Keeper %}
+                    <td></td>
+                    <td></td>
+                    {% endif %}
+
                     </tr>
+
+
                     {% endfor %}
                   
 
