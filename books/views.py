@@ -1,7 +1,7 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render_to_response,RequestContext
 from models import Book
-from books.forms import ContactForm, SubmitForm
+from books.forms import SubmitForm
 import time,datetime
 
 # Create your views here.
