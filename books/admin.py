@@ -7,7 +7,5 @@ class BookInfo(admin.ModelAdmin):
 	search_fields = ('Types','Title','Isbn')
 	ordering = ('Number',)
 
-
-
 admin.site.register(Publisher)
 admin.site.register(Book,BookInfo)
