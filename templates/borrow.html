@@ -5,11 +5,12 @@
 <script type="text/javascript" src="http://www.douban.com/js/api-parser.js?v=1"></script>
 <script>
     $(document).ready(function(){
-        $('#summary-div').hide();
-        $('#summary-show').click(function(){
+        $('.alert').hide();
+        $('#information-div').mouseover(function(){
             $('#summary-show').fadeOut("fast");
-            $('#summary-div').fadeIn("slow");
+            $('.alert').fadeIn("slow");
         });
+        $("#id_usrid").val("请输入您的姓名或id");
     });
     DOUBAN.apikey = '00fa6c0654689a0202ef4412fd39ce06'
     DOUBAN.getISBNBook({
@@ -30,6 +31,73 @@
     }
 })
 </script>
+
+<style>
+  form input{
+      padding-top: 10px;
+      margin-bottom: 20px;
+  }
+
+    #id_usrid {
+  display: block;
+  width: 40%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+          transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+#id_usrid:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+#id_usrid:-moz-placeholder {
+  color: #999999;
+}
+
+#id_usrid::-moz-placeholder {
+  color: #999999;
+  opacity: 1;
+}
+
+#id_usrid:-ms-input-placeholder {
+  color: #999999;
+}
+
+#id_usrid::-webkit-input-placeholder {
+  color: #999999;
+}
+
+#id_usrid[disabled],
+#id_usrid[readonly],
+fieldset[disabled] #id_usrid {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+}
+
+textarea#id_usrid {
+  height: auto;
+}
+    #id_time{
+
+    }
+.time{
+    text-align: left;
+}
+</style>
 {% endblock %}
 {% block content %}
 
@@ -45,7 +113,6 @@
                 <p>ISBN：</p>
                 <p>出版信息：</p>
                 <p>豆瓣评分：</p>
-                <button id="summary-show">本书简介</button>
             </div>
             <div class="col-md-8" style="text-align: left;padding-left: 0">
                 <h3><a id="title" target='_blank'></a></h3>
@@ -54,8 +121,12 @@
                 <p id="publisher"></p>
                 <p id="rating-average"></p>
             </div>
-            <div id="summary-div" class="col-md-offset-1 col-md-11">
-            </div>
+
+        </div>
+        <div  class="alert col-md-12" style="text-align: left">
+            <blockquote>
+            <p id="summary-div"></p>
+            </blockquote>
         </div>
     </div>
 
@@ -64,7 +135,7 @@
     <div id="form-div" class="col-md-6 form-group">
         <form id="borrow-form" class="form-horizontal" action="" method="POST">
 
-            <div class="row">
+            <div class="">
 
                 {% if form.errors %}
                 <p style="color:red">
@@ -75,21 +146,17 @@
                 <div class="col-md-12">
                     <div style="display:none">{{ book }}</div>
                     {{ form.usrid.errors }}
-                    <!-- <input id="id_usrid" value="" type="text" class="form-control" placeholder="請輸入您的姓名或ID" style="margin-bottom: 1%"> -->
-                    <label for="id_usrid" >請輸入您的姓名或ID</label>
-                    <!-- <input id="id_usrid" name="usrid" value="" type="text" class="form-control" placeholder="請輸入您的姓名或ID" style="margin-bottom: 1%"> -->
                     {{ form.usrid }}
                 </div>
 
-                <div class="col-md-7">
+                <div class="col-md-7 time" >
       <!--              <select id="borrowtime" class="form-control">
                         <option>请选择您要借的时间</option>
                         <option value="{{ time }}">一周</option>
                         <option value="{{ time }}">两周</option>
                         <option value="{{ time }}">三周</option>
                         <option value="{{ time }}">1个月</option>
-                    </select>  -->  
-                    <br> 
+                    </select>  -->
                 {{ form.time.errors }}
        <!--         <select id="id_time" name="time" class="form-control">
                         <option>请选择您要借的时间</option>
@@ -104,7 +171,7 @@
 
                 </div>  
 
-                <div class="col-md-offset-3 col-md-1 ">
+                <div class="col-md-1 ">
                     <input id="borrow-submit" class="btn btn-info" type="submit" class="form-control" placeholder="提交">
                 </div>
             </div>
