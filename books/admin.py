@@ -5,7 +5,8 @@ from books.models import Publisher, Book
 class BookInfo(admin.ModelAdmin):
 	list_display = ('Number','Types','Title','Isbn','Price','Publish','Owner','Ordered','Keeper','Endtime')
 	search_fields = ('Types','Title','Isbn')
-	ordering = ('Number',)
+	Book.objects.extra(
+			select={'Number':'CAST(Number as INTEGER)'}).order_by("Number")
 
 admin.site.register(Publisher)
 admin.site.register(Book,BookInfo)
