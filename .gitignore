@@ -4,3 +4,5 @@ books/*.pyc
 books/*.swp
 xdBookManager/*.pyc
 xdBookManager/*.swp
+devices/*.pyc
+devices/*.swp
