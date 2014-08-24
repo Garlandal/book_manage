@@ -33,21 +33,22 @@
         </div>
         <input type="submit" placeholder="提交" class="col-md-2 btn-lg alert-success" onclick="test()">
     </div>
+
     <div class="container" id="main">
         <div class="content">
             <h2 class="hero">Choose the book you really need</h2>
         </div>
-                <div class="col-md-8 col-md-offset-2">
-
-                    <table class="table table-hover table-bordered " style="">
+        <div class="table-responsive">
+                <!-- <div class="col-xs-12 col-md-8 col-md-offset-2"> -->
+                    <table class="table table-hover " style="">
                     <tr>
-                    <td id="number">Type</td>
-                    <td id="name">书名</td>
-                    <td id="isbn">价格</td>
-                    <td id="price">Publish</td>
-                    <td id="state">图书来源</td>
-                    <td id="owner">Keeper</td>
-                    <td id="endtime">Endtime</td>
+                    <td id="number"><strong>Type</strong></td>
+                    <td id="name"><strong>书名</strong></td>
+                    <td id="isbn">价格<strong></strong></td>
+                    <td id="price"><strong>Publish</strong></td>
+                    <td id="state"><strong>图书来源</strong></td>
+                    <td id="owner"><strong>Keeper</strong></td>
+                    <td id="endtime"><strong>Endtime</strong></td>
                    
                     </tr>
                     
@@ -55,8 +56,14 @@
                     {% for book in books %}
                   
                     <tr class="
-                    {% if book.Endtime == none %}success
-                    {% else %}danger
+                    {% if book.Endtime == none %}
+                        success
+                    {% else %} 
+                        {% if book.Ordered == True %}
+                            warning
+                        {% else %}
+                            danger
+                        {% endif %}
                     {% endif %}">
                     <td>{{ book.Types }}</td>
                     <td><a href="./borrow/{{ book.Number }}/">{{ book.Title }}</a></td>
@@ -78,30 +85,10 @@
 
 
                     {% endfor %}
-                  
-
-
-
-
-                    <!--{% for book in book_list %}-->
-                    <!--<tr class="-->
-                    <!--{% if book.book_number == 0 %}-->
-                    <!--danger-->
-                    <!--{% else %}-->
-                    <!--success-->
-                    <!--{% endif %}-->
-                    <!--">-->
-                        <!--<td>{{ book.book_sequenceNumber }}</td>-->
-                        <!--<td>{{ book.book_name }}</td>-->
-                        <!--<td>{{ book.book_ISBN }}</td>-->
-                        <!--<td>{{ book.book_number }}</td>-->
-                        <!--<td>{{ book.book_owner }}</td>-->
-                        <!--<td>{{ borrow.keeper }}</td>-->
-                        <!--<td>{{ borrow.endtime }}</td>-->
-                    <!--</tr>-->
-
-                    <!--{% endfor %}-->
                 </table>
-        </div>
+            </div>
+        <!-- </div>  -->
     </div>
+
+
 {% endblock %}
