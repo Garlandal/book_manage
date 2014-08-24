@@ -48,3 +48,8 @@ footer{
 #information-div img{
     padding-top: 15%;
 }
+
+#hero{
+    text-align: center;
+    margin: auto;
+}
