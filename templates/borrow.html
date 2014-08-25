@@ -10,7 +10,7 @@
             $('#summary-show').fadeOut("fast");
             $('.alert').fadeIn("slow");
         });
-        $("#id_usrid").val("请输入您的姓名或id");
+         // $("#id_usrid").val("请输入您的姓名或id");
     });
     DOUBAN.apikey = '00fa6c0654689a0202ef4412fd39ce06'
     DOUBAN.getISBNBook({
@@ -130,52 +130,46 @@ textarea#id_usrid {
         </div>
     </div>
 
+ <form id="form-div" class="form-inline" role="form" action="" method="POST">
+	{% csrf_token %}
 
-    <div id="form-div" class="col-md-6 form-group">
-        <form id="borrow-form" class="form-horizontal" action="" method="POST">
-
-            <div class="">
-
-                {% if form.errors %}
-                <p style="color:red">
-                    {{ form.errors|pluralize }}
-                </p>
-                {% endif %}
-
-                <div class="col-md-12">
-                    <div style="display:none">{{ book }}</div>
+           <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">你的姓名</span>
                     {{ form.usrid.errors }}
-                    {{ form.usrid }}
+                    <input tabindex="1" placeholder="请输入你的姓名" name="usrid" type="text" class="form-control" id="id_username"  size="20" maxlength="20"  onfocus="clearMsg('div_uname_hint')" onblur="verifyUName(username.value,'div_uname_hint')"/>
+
                 </div>
-
-                <div class="col-md-7 time" >
-      <!--              <select id="borrowtime" class="form-control">
-                        <option>请选择您要借的时间</option>
-                        <option value="{{ time }}">一周</option>
-                        <option value="{{ time }}">两周</option>
-                        <option value="{{ time }}">三周</option>
-                        <option value="{{ time }}">1个月</option>
-                    </select>  -->
-                {{ form.time.errors }}
-       <!--         <select id="id_time" name="time" class="form-control">
-                        <option>请选择您要借的时间</option>
-                        <option value="7" selected="selected">一周</option>
-                        <option value="14">两周</option>
-                        <option value="21">三周</option>
-                        <option value="30">1个月</option>
-                </select>   -->
-                <label for="id_time" >请选择您要借的时间</label>
-                {{ form.time }}
+                <div id="div_uname_hint" class="hint_error"></div>
+            </div>
 
 
-                </div>  
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">借阅天数</span>
+                    {{ form.borrow_time.errors }}
+                    <input tabindex="5" placeholder="请输入借阅天数(4-42)" class="form-control" name="borrow_time" type="tel" size="20" maxlength="20" onfocus="clearMsg('div_tel_hint')" onblur="verifyTel(borrow_time.value,'div_tel_hint')"/>
+                </div>
+                <div id="div_tel_hint" class="hint_error"></div>
+            </div>
 
-                <div class="col-md-1 ">
-                    <input id="borrow-submit" class="btn btn-info" type="submit" class="form-control" placeholder="提交">
+
+
+          <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">电话号码</span>
+                    {{ form.phone_number.errors }}
+                    <input tabindex="5" placeholder="请输入你的电话号码" class="form-control"name="phone_number" type="tel" size="20" maxlength="20" onfocus="clearMsg('div_tel_hint')" onblur="verifyTel(phone_number.value,'div_tel_hint')"/>
+                </div>
+                <div id="div_tel_hint" class="hint_error"></div>
+            </div>
+
+             <div class="form-group">
+                <div class="input-group">
+                    <div id="div_accept_hint" class="hint_error"></div>
+                    <button tabindex="9" type="submit" class="btn btn-success" onclick="verifyInput()">确定</button>
                 </div>
             </div>
-        </form>
-    </div>
 
 </div>
 {% endblock %}

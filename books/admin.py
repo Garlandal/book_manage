@@ -3,7 +3,7 @@ from books.models import Publisher, Book
 
 # Register your models here.
 class BookInfo(admin.ModelAdmin):
-	list_display = ('Number','Types','Title','Isbn','Price','Publish','Owner','Ordered','Keeper','Endtime')
+	list_display = ('Number','Types','Title','Isbn','Price','Publish','Owner','Ordered','Keeper','Keepertel','Endtime')
 	search_fields = ('Types','Title','Isbn')
 	Book.objects.extra(
 			select={'Number':'CAST(Number as INTEGER)'}).order_by("Number")
