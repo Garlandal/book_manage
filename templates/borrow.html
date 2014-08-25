@@ -130,8 +130,10 @@ textarea#id_usrid {
         </div>
     </div>
 
- <form id="form-div" class="form-inline" role="form" action="" method="POST">
-	{% csrf_token %}
+  <div style="{% if booksinfo.Keeper %}
+      display:none  {% endif %} ">
+    <form id="form-div" class="form-inline" role="form" action="" method="POST">
+	   {% csrf_token %}
 
            <div class="form-group">
                 <div class="input-group">
@@ -173,6 +175,6 @@ textarea#id_usrid {
                 </div>
               </center>
             </div>
-
+</div>
 </div>
 {% endblock %}
